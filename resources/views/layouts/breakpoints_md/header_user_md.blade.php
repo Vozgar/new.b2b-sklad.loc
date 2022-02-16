@@ -2,7 +2,7 @@
         <?php
                         $user = auth()->user();
                     ?>
-        <div class="container">
+        <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-link b">$28,40</li>
                 <li class="nav-link b">€34,40</li>

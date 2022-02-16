@@ -1,13 +1,13 @@
-<nav class="navbar navbar-expand-xxl ">
+<nav class="navbar navbar-expand-lg ">
   <div class="container-fluid bg-blue ">
-    <div class="collapse navbar-collapse d-flex justify-content-center pt-2 " id="CatMenuXXL">
+    <div class="collapse navbar-collapse d-flex justify-content-center pt-2 " id="CatMenulg">
       <ul class="navbar-nav ">
         @foreach ($categories as $item)
             <li class="nav-item dropdown">
-                <a class="nav-link white h5 " href="#" id="CatMenuLinkXXL" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link white h5 " href="#" id="CatMenuLinklg" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ $item->name }}
                 </a>
-                <div class="dropdown-menu dropdown-large-xxl">
+                <div class="dropdown-menu dropdown-large-lg">
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled h6">
@@ -19,7 +19,7 @@
                         <div class="col-6">
                             <ul class="list-unstyled h6">
 							    @endif
-						        <li class="lh-xxl">
+						        <li class="lh-lg">
 							        <a class="blue text-decoration-none" href="{{ route('catalog', ['id' => $item_children->id]) }}"><i class="bi bi-play-fill"></i> {{ $item_children->name }}</a>
 						        </li>
 						        <?php $page++; ?>

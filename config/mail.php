@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -37,11 +38,12 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'host' => //function(){dd(setting()->all()); return setting('smtp_for_sanding');},//setting('smtp_for_sanding'),//Setting::get('smtp_for_sanding'),//
+            env('MAIL_HOST', 'smtp.mailgun.org'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', ''),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'username' => env('MAIL_USERNAME',''),
+            'password' => env('PASSWORD',''),
             'timeout' => null,
             'auth_mode' => null,
         ],

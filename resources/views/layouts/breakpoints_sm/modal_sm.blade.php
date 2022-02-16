@@ -1,10 +1,10 @@
 
-<!--header_user_manager_xxl-->
-<div class="modal fade" id="header_user_manager_xxl" tabindex="-1" aria-labelledby="header_user_manager_xxlLabel" aria-hidden="true">
+<!--header_user_manager_sm-->
+<div class="modal fade" id="header_user_manager_sm" tabindex="-1" aria-labelledby="header_user_manager_smLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="header_user_manager_xxlLabel">{{__('Your manager')}}</h4>
+        <h4 class="modal-title" id="header_user_manager_smLabel">{{__('Your manager')}}</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
             <div class="modal-body">
@@ -28,12 +28,12 @@
   </div>
 </div>
 
-<!--header_user_support_xxl-->
-<div class="modal fade" id="header_user_support_xxl" tabindex="-1" aria-labelledby="header_user_support_xxlLabel" aria-hidden="true">
+<!--header_user_support_sm-->
+<div class="modal fade" id="header_user_support_sm" tabindex="-1" aria-labelledby="header_user_support_smLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="header_user_support_xxlLabel">{{__('Support')}}</h4>
+        <h4 class="modal-title" id="header_user_support_smLabel">{{__('Support')}}</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
              <div class="modal-body">				
@@ -63,12 +63,12 @@
 
 
 
-<!--finish_cart_xxl-->
-<div class="modal fade" id="finish_cart_xxl" tabindex="-1" aria-labelledby="finish_cart_xxlLabel" aria-hidden="true">
+<!--finish_cart_sm-->
+<div class="modal fade" id="finish_cart_sm" tabindex="-1" aria-labelledby="finish_cart_smLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="finish_cart_xxlLabel">Ваш заказ</h5>
+        <h5 class="modal-title" id="finish_cart_smLabel">Ваш заказ</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

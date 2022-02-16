@@ -1,9 +1,9 @@
-<textarea id="filter_json" hidden>
+{{-- <textarea id="filter_json" hidden>
     {{$all_products}}
 </textarea>
 <textarea id="filtered_products_json" hidden>
     {{$filtered_products}}
-</textarea>
+</textarea> --}}
 @foreach ($products as $item)
 <article class="card card-product-list">
 	<div class="row no-gutters">
@@ -63,16 +63,16 @@
 								<input type="text" id="qty-{{$item->id}}" class="form-control" value="{{$item->multiplicity}}">
 							<div class="input-group-append">
 								<button class="btn btn-light button-plus" data-product-id="{{$item->id}}" data-mutiplicity="{{$item->multiplicity}}" type="button" id="button-plus"> + </button>
-							</div>			  
+							</div>
 						</div>
 						<div class="d-flex align-items-center">
 							<span class="b dark pe-2">{{$item->multiplicity_unit}}</span>
 						</div>
-					</span>		
+					</span>
 					<span class="d-flex justify-content-center mt-2">
 						<button class="btn btn-primary btn-mb btn-block add-to-cart" data-product-id="{{$item->id}}" type="button"><i class="bi bi-cart4"></i>   {{__('l.add_to_cart')}}</button>
-					</span>	
-					  
+					</span>
+
 				</div>
 			</div>
 		</div>

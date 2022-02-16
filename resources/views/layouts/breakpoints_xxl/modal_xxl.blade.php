@@ -38,19 +38,19 @@
       </div>
              <div class="modal-body">
           <span style="font-size: 1.2em; color: Dodgerblue;">
-						<i class="bi bi-phone"></i> +380123456789
+						<i class="bi bi-phone"></i> {{setting('phone_admin')}}
 					</span>
                 <hr>
 					<span style="font-size: 1.2em; color: #824aad;">
-						Viber +380123456789
+						Viber {{setting('viber_admin')}}
 					</span>
                 <hr>
 					<span style="font-size: 1.2em; color: #3d8fc7;">
-						<i class="bi bi-telegram"></i> +380123456789
+						<i class="bi bi-telegram"></i> {{setting('telegram_admin')}}
 					</span>
                 <hr>
 					<span style="font-size: 1.3em; color: Dodgerblue;">
-						<i class="bi bi-at"></i> webmaster@site.com.ua
+						<i class="bi bi-at"></i> {{setting('email_admin')}}
 					</span>
             </div>
         <div class="modal-footer">

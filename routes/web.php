@@ -6,6 +6,8 @@ use App\Http\Controllers\DraftController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserSettingsController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\CustomController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -35,6 +37,8 @@ Route::get('/product/list', [App\Http\Controllers\ProductController::class, 'lis
 
 Route::get('/pagination', array('as' => 'ajax.pagination', 'uses' => 'ProductsController@getProducts'))->middleware(['auth']);
 
+Route::post('send-password', [App\Http\Controllers\CustomController::class, 'sendPassword'])->name('send-password');//['as' => 'send-password', 'uses' => 'CustomController@sendPassword']);
+
 Route::get('locale/{locale?}', [UserSettingsController::class, 'setLocale'])->name('locale')->middleware(['auth']);
 
 
@@ -61,3 +65,7 @@ Route::get('/tree-category', [PriceController::class, 'treeCategory'])->middlewa
 Route::get('/price/check-category', [PriceController::class, 'checkCategory'])->middleware(['auth']);
 
 Route::get('/price/download/{id?}', [PriceController::class, 'download'])->middleware(['auth']);
+
+Route::get('/profile', [ProfileController::class, 'index'])->middleware(['auth']);
+
+Route::get('/profile/change_password', [ProfileController::class, 'changePassword'])->middleware(['auth']);

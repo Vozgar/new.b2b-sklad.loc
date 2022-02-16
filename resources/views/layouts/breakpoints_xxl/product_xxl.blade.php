@@ -1,4 +1,5 @@
 
+
 <div class="card">
 
   <span class="h4 b text-center mt-1">{{$product->name}}</span>
@@ -139,7 +140,7 @@
 							<span class="b dark">{{$product->multiplicity_unit}}</span>
 				</div>
             </div>
-			
+
           </div>
           <div class="form-group col-md">
               <div class="d-flex justify-content-around">
@@ -230,16 +231,17 @@
 </article>
 <article id="certificate" class="card mt-2 mb-2">
     <div class="card-body">
-        <div class="text-center h4">Висновок державної санітарно-епідеміологічної експертизи</div>
+        <div class="text-center h4">{{__('l.certificates')}}</div>
         <div class="row">
-          <div class="col-6">
-            <img src="{{ asset('img/doc/1_1.jpg') }}" class="img-fluid">
-          </div>
-          <div class="col-6">
-            <img src="{{ asset('img/doc/1_2.jpg') }}" class="img-fluid">
-          </div>
+            @foreach ($product->certificatesFiles as $picture)
+            <div class="col-6">
+                <img src="{{ Str::replaceFirst('public', 'storage', asset($picture)) }}" class="img-fluid">
+              </div>
+            @endforeach
+
+
         </div>
-        <hr>
+        {{-- <hr>
         <div class="text-center h4">Сертифікат відповідності</div>
         <div class="row">
           <div class="col-6">
@@ -248,7 +250,7 @@
           <div class="col-6">
 
           </div>
-        </div>
+        </div> --}}
 
     </div>
 </article>

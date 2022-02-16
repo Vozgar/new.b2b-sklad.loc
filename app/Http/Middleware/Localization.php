@@ -20,9 +20,13 @@ class Localization
     public function handle(Request $request, Closure $next)
     {
         $user = auth()->user();
-        $record = UserSettings::where(['customer_id' => $user->customer_code])->first();
-        //if (Session::has('locale')) {
-        App::setLocale(Session::get('locale', $record->language));
+        if ($user != null) {
+            $record = UserSettings::where(['customer_id' => $user->customer_code])->first();
+            //if (Session::has('locale')) {
+            App::setLocale(Session::get('locale', $record->language));
+        } else {
+            App::setLocale(Session::get('locale', 'ua'));
+        }
         //}
         return $next($request);
     }

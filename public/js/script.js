@@ -80,7 +80,12 @@ $(document).ready(function() {
                 datatype: "html",
             })
             .done(function(data) {
-                $("#products_wrap").empty().html(data);
+                //$("#products_wrap").empty().html(data);
+                $("#products_wrap_xxl").empty().html(data);
+                    $("#products_wrap_xl").empty().html(data);
+                    $("#products_wrap_lg").empty().html(data);
+                    $("#products_wrap_md").empty().html(data);
+                    $("#products_wrap_sm").empty().html(data);
                 // location.hash = page;
             })
             .fail(function(jqXHR, ajaxOptions, thrownError) {
@@ -201,6 +206,31 @@ $(document).on('click', '.delete-cart-row', function() {
 
             getDataCart();
             $('#cart-qty').text(data);
+
+        })
+        .fail(function(jqXHR, ajaxOptions, thrownError) {
+            console.log('No response from server');
+        });
+});
+
+$(document).on('click', '#change_password_button', function() {
+    let pass = $('#new_password').val();
+    let repass = $('#new_password_repeat').val();
+    $.ajax({
+            url: '/profile/change_password?pass=' + pass + "&repass=" + repass,
+            type: "get",
+            datatype: "html"
+        })
+        .done(function(data) {
+            //$("#kt_datatable").empty().html(data);
+            //history.pushState(null, null, '?page=' + page + '&category_id=' + category + '&search=' + search);
+            //location.hash = page;
+            //$('#add_id').val('');
+            //$('#add_qty').val(0);
+            //$('#add_price').val('');
+
+            // getDataCart();
+            // $('#cart-qty').text(data);
 
         })
         .fail(function(jqXHR, ajaxOptions, thrownError) {

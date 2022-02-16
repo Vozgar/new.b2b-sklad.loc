@@ -19,11 +19,11 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $products = Product::orderBy('id', 'desc')->get();
-        $categories = Category::orderBy('id', 'desc')->where(['parent_id' => null])->get();
+        $categories = Category::orderBy('id', 'desc')->where(['parent_id' => 0])->get();
         $carts = Cart::where(['user_id'=>Auth::user()->id])->get();
 
         if ($request->ajax()) {
-            return view('layouts.breakpoints_xxl.cart_body_xxl', compact('products', 'categories','carts'));
+            return view('catalog.cart_body', compact('products', 'categories','carts'));
 
         }else{
             return view('catalog.cart', compact('products', 'categories','carts'));

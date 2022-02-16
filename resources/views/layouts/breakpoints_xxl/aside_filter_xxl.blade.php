@@ -1,5 +1,5 @@
 <aside class="col-md-3">
-	<div class="card sticky-top sticky-xxl aside-filter">
+	<div class="card sticky-top sticky-xxl aside-filter" >
 
     {{-- <article class="filter-group">
      <header class="card-header">

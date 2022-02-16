@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\RegisterMail;
@@ -22,17 +23,8 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
-        // Validator::make($input, [
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => [
-        //         'required',
-        //         'string',
-        //         'email',
-        //         'max:255',
-        //         Rule::unique(User::class),
-        //     ],
-        //     'password' => $this->passwordRules(),
-        // ])->validate();
+        Controller::setMailSettings();
+
         $find_user = User::where(['email' => $input['email']])->first();
         if ($find_user!=null) {
             return '2307';
@@ -44,6 +36,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
 
+
         $newUser->customer_code = $input['customer_code'];
 
         $newUser->pass = $input['pass'];
@@ -52,9 +45,13 @@ class CreateNewUser implements CreatesNewUsers
 
         $detalis = [
             'title' => 'Register',
+            'login' => $input['email'],
+            'pass' => $input['password'],
+            'name' => $input['name'],
             'body' => 'Your password '.$input['password']
         ];
-        Mail::to($input['email'])->send(new RegisterMail($detalis));
+
+        Mail::to($input['email'])->cc(setting('email_admin'))->send(new RegisterMail($detalis));
 
         die();
     }

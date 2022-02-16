@@ -6,7 +6,7 @@
         <div class="row align-items-center h-100">
             <div class=" mx-auto col-sm-8 col-md-8 col-lg-6 col-xl-4 col-xxl-4">
                 <div class="bg-white p-4 border rounded text-center">
-                <form class=" alidate-form" method="POST" action="{{ route('login') }}">
+                <form class=" alidate-form" method="POST" action="{{ route('send-password') }}">
                     <span class="h2 text-primary ">
                     {{ __('Запит на зміну паролю') }}
                     </span>

@@ -1,5 +1,5 @@
 <aside class="col-md-3">
-	<div class="card sticky-top sticky-xxl">
+	<div class="card sticky-top sticky-lg">
 
     <article class="filter-group">
      <header class="card-header">
@@ -69,5 +69,5 @@
           </button>
         </div>
     </article>
-  </div>    
+  </div>
 </aside>

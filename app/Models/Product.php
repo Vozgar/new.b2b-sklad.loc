@@ -3,15 +3,10 @@
 namespace App\Models;
 
 use App\Http\Controllers\CurrencyController;
-use Facade\FlareClient\Stacktrace\File;
-use Faker\Provider\File as ProviderFile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Testing\File as TestingFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\Console\Helper\FormatterHelper;
 
 //use File;
 
@@ -20,6 +15,11 @@ class Product extends MainModel
     use HasFactory;
 
     protected $visible = ['id', 'properties_filter'];
+
+    public function Certificates()
+    {
+        return $this->hasMany(Certificate::class, 'product_id', 'id');
+    }
 
     /**
      * @return string
@@ -40,11 +40,19 @@ class Product extends MainModel
         return $picture;
     }
 
+    public function getCertificatesFilesAttribute()
+    {
+        $files = [];
+        foreach ($this->certificates as $item) {
+            $files[] = Storage::url('public/img/certificates/' . $item->file_name . '');
+            //$files[] = $item->name;
+        }
+        return $files;
+    }
+
     public function getPicturesAttribute()
     {
         $files = Storage::files('public/img/products/' . $this->id . '/');
-
-
         return $files;
     }
 
@@ -89,7 +97,7 @@ class Product extends MainModel
 
     public function getCenterAmountAttribute()
     {
-        $stock_group_id = Setting::where(['name'=>'central_stock_group'])->first()->val;
+        $stock_group_id = setting('central_stock_group');
         $stocks = [];
         $stock_groups = StockGroup::where(['group_id' => $stock_group_id])->get();
         foreach ($stock_groups as $item) {
@@ -97,9 +105,7 @@ class Product extends MainModel
         }
         $amount = 0;
 
-        //$product_in_stock = ProductsInStock::where(['stock_id' => $stocks, 'product_id' => $this->id])->dd();
         $product_in_stock = ProductsInStock::whereIn('stock_id', $stocks)->where(['product_id' => $this->id])->get();
-        //dd($product_in_stock);
         foreach ($product_in_stock as $item) {
             $amount = $amount + $item->amount;
         }
@@ -122,12 +128,12 @@ class Product extends MainModel
     {
         $user = Auth::user();
 
-        $row_price_type_id = IndividualPriceType::where(['customer_id'=> $user->user_code,'product_id'=>$this->id])->first();
+        $row_price_type_id = IndividualPriceType::where(['customer_id' => $user->user_code, 'product_id' => $this->id])->first();
         $price_type_id = null;
-        if ($row_price_type_id!=null) {
+        if ($row_price_type_id != null) {
             $price_type_id = $row_price_type_id->price_type_id;
         }
-        if ($price_type_id==null) {
+        if ($price_type_id == null) {
             $price_type_id = UserSettings::where(['customer_id' => $user->customer_code])->first()->price_type_id;
         }
         $product_price = ProductPrice::where(['product_id' => $this->id, 'price_type_id' => $price_type_id])->first();
@@ -139,8 +145,8 @@ class Product extends MainModel
         if ($product_price != null) {
             $price = $product_price->price;
         }
-        $second_currency = Currency::where(['id'=>980])->first();
-        $price = CurrencyController::Convert($price,Currency::where(['id'=>$product_price->currency_id])->first(),$second_currency);
+        $second_currency = Currency::where(['id' => 980])->first();
+        $price = CurrencyController::Convert($price, Currency::where(['id' => $product_price->currency_id])->first(), $second_currency);
 
         return $price;
     }
@@ -149,12 +155,12 @@ class Product extends MainModel
     {
         $user = Auth::user();
 
-        $row_price_type_id = IndividualPriceType::where(['customer_id'=> $user->user_code,'product_id'=>$this->id])->first();
+        $row_price_type_id = IndividualPriceType::where(['customer_id' => $user->user_code, 'product_id' => $this->id])->first();
         $price_type_id = null;
-        if ($row_price_type_id!=null) {
+        if ($row_price_type_id != null) {
             $price_type_id = $row_price_type_id->price_type_id;
         }
-        if ($price_type_id==null) {
+        if ($price_type_id == null) {
             $price_type_id = UserSettings::where(['customer_id' => $user->customer_code])->first()->price_type_id;
         }
         $product_price = ProductPrice::where(['product_id' => $this->id, 'price_type_id' => $price_type_id])->first();
@@ -182,7 +188,7 @@ class Product extends MainModel
 
         $currency = Currency::where(['id' => $currency_id])->first();
 
-        if ($currency==null) {
+        if ($currency == null) {
             return 0;
         }
         $code = $currency->code;
@@ -202,12 +208,12 @@ class Product extends MainModel
         $price = 0;
         if ($product_price != null) {
             $price = $product_price->price;
-        }else{
+        } else {
             return $price;
         }
 
-        $secont_currency = Currency::where(['id'=>980])->first();
-        $price = CurrencyController::Convert($price,Currency::where(['id'=>$product_price->currency_id])->first(),$secont_currency);
+        $secont_currency = Currency::where(['id' => 980])->first();
+        $price = CurrencyController::Convert($price, Currency::where(['id' => $product_price->currency_id])->first(), $secont_currency);
 
 
         return $price;

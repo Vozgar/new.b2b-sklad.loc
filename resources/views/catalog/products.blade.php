@@ -15,7 +15,7 @@
                 @include('layouts.breakpoints_xxl.aside_filter_xxl')
                 <main class="col-9">
                     @include('layouts.breakpoints_xxl.breadcrumb_xxl')
-                    <div id="products_wrap">
+                    <div id="products_wrap_xxl">
                         @include('layouts.breakpoints_xxl.products_xxl')
                         {{-- @include('layouts.breakpoints_xxl.pagination_xxl') --}}
                         @include('layouts.breakpoints_xxl.modal_xxl')
@@ -25,10 +25,11 @@
             </div>
         </div>
         @include('layouts.breakpoints_xxl.footer_xxl')
-    </section>    
-	
+    </section>
+
+
 	<!-- breakpoints xl -->
-    <section class="d-none d-xl-block d-xxl-none blueg">
+    <section class="d-none d-xl-block d-xxl-none bg-danger">
         <header class="bg-white sticky-top">
             @include('layouts.breakpoints_xl.header_user_xl')
             @include('layouts.breakpoints_xl.header_search_xl')
@@ -39,7 +40,7 @@
                 @include('layouts.breakpoints_xl.aside_filter_xl')
                 <main class="col-9">
                     @include('layouts.breakpoints_xl.breadcrumb_xl')
-                    <div id="products_wrap">
+                    <div id="products_wrap_xl">
                         @include('layouts.breakpoints_xl.products_xl')
                         {{-- @include('layouts.breakpoints_xl.pagination_xl') --}}
                         @include('layouts.breakpoints_xl.modal_xl')
@@ -49,11 +50,11 @@
             </div>
         </div>
         @include('layouts.breakpoints_xl.footer_xl')
-    </section>	
-	
-	
+    </section>
+
+
 	<!-- breakpoints lg -->
-    <section class="d-none d-lg-block d-xl-none">
+    <section class="d-none d-lg-block d-xl-none bg-warning ">
         <header class="bg-white sticky-top">
             @include('layouts.breakpoints_lg.header_user_lg')
             @include('layouts.breakpoints_lg.header_search_lg')
@@ -64,7 +65,7 @@
                 @include('layouts.breakpoints_lg.aside_filter_lg')
                 <main class="col-9">
                     @include('layouts.breakpoints_lg.breadcrumb_lg')
-                    <div id="products_wrap">
+                    <div id="products_wrap_lg">
                         @include('layouts.breakpoints_lg.products_lg')
                         {{-- @include('layouts.breakpoints_lg.pagination_lg') --}}
                         @include('layouts.breakpoints_lg.modal_lg')
@@ -74,10 +75,11 @@
             </div>
         </div>
         @include('layouts.breakpoints_lg.footer_lg')
-    </section>	
-	
+    </section>
+
+
 	<!-- breakpoints md -->
-    <section class="d-none d-md-block d-lg-none">
+    <section class="d-none d-md-block d-lg-none bg-info ">
         <header class="bg-white sticky-top">
             @include('layouts.breakpoints_md.header_user_md')
             @include('layouts.breakpoints_md.header_search_md')
@@ -88,20 +90,21 @@
                 @include('layouts.breakpoints_md.aside_filter_md')
                 <main class="col-9">
                     @include('layouts.breakpoints_md.breadcrumb_md')
-                    <div id="products_wrap">
+                    <div id="products_wrap_md">
                         @include('layouts.breakpoints_md.products_md')
                         {{-- @include('layouts.breakpoints_md.pagination_md') --}}
                         @include('layouts.breakpoints_md.modal_md')
-                    </div> 
+                    </div>
 
                 </main>
             </div>
         </div>
         @include('layouts.breakpoints_md.footer_md')
-    </section>	
-	
-	<!-- breakpoints sm --> 
-    <section class="d-none d-sm-block d-md-none">
+    </section>
+
+
+	<!-- breakpoints sm -->
+    <section class="d-none d-sm-block d-md-none bg-dark ">
         <header class="bg-white sticky-top">
             @include('layouts.breakpoints_sm.header_user_sm')
             @include('layouts.breakpoints_sm.header_search_sm')
@@ -116,23 +119,23 @@
                         @include('layouts.breakpoints_sm.products_sm')
                         {{-- @include('layouts.breakpoints_sm.pagination_sm') --}}
                         @include('layouts.breakpoints_sm.modal_sm')
-                    </div> 
+                    </div>
 
                 </main>
             </div>
         </div>
         @include('layouts.breakpoints_sm.footer_sm')
-    </section>	
-	
-	
-	<!-- breakpoints xs --> 
-    <section class="d-block d-sm-none">
+    </section>
+
+
+	<!-- breakpoints xs -->
+    <section class="d-block d-sm-none ">
         <header class="bg-white sticky-top">
             @include('layouts.breakpoints_xs.header_user_xs')
             @include('layouts.breakpoints_xs.header_search_xs')
             @include('layouts.breakpoints_xs.menu_xs')
         </header>
-		
+
     </section>
 
     <script src="{{ asset('js/filter.js') }}"></script>

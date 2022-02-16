@@ -6,11 +6,15 @@ use App\Models\Category;
 use App\Models\Draft;
 use App\Models\DraftItem;
 use App\Models\Product;
+use App\Mail\RegisterMail;
+use Illuminate\Support\Facades\Mail as Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DraftController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +23,7 @@ class DraftController extends Controller
     public function index(Request $request)
     {
         $products = Product::orderBy('id', 'desc')->get();
-        $categories = Category::orderBy('id', 'desc')->where(['parent_id' => null])->get();
+        $categories = Category::orderBy('id', 'desc')->where(['parent_id' => 0])->get();
         $drafts = Draft::where(['user_id' => Auth::user()->id])->get();
 
         if ($request->ajax()) {
@@ -65,7 +69,7 @@ class DraftController extends Controller
     public function DraftEdit(Request $request, $id = null)
     {
         $products = Product::orderBy('id', 'desc')->get();
-        $categories = Category::orderBy('id', 'desc')->where(['parent_id' => null])->get();
+        $categories = Category::orderBy('id', 'desc')->where(['parent_id' => 0])->get();
 
         if ($id == null) {
             $draft = new Draft();

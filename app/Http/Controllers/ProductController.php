@@ -40,7 +40,7 @@ class ProductController extends Controller
         $categories = $this->main_categories();
 
         if ($request->ajax()) {
-            return view('layouts.breakpoints_xxl.products_xxl', compact('products', 'categories', 'all_products', 'filtered_products'));
+            return view('catalog.products_body', compact('products', 'categories', 'all_products', 'filtered_products'));
         }
 
         return view('catalog.products', compact('products', 'categories', 'all_products', 'filtered_products'));
@@ -108,13 +108,13 @@ class ProductController extends Controller
 
     public function OrderLists()
     {
-        $detalis = [
-            'title' => 'Register',
-            'body' => 'Your password 222',
-        ];
-        $mail = Mail::to('lysak.olexandr@gmail.com');
-        $mail_body = new RegisterMail($detalis);
-        $res = $mail->send($mail_body);
+        // $detalis = [
+        //     'title' => 'Register',
+        //     'body' => 'Your password 222',
+        // ];
+        // $mail = Mail::to('lysak.olexandr@gmail.com');
+        // $mail_body = new RegisterMail($detalis);
+        // $res = $mail->send($mail_body);
 
         //dd($mail);
         //die();

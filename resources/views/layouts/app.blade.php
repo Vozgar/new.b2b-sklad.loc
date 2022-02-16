@@ -21,6 +21,8 @@
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+	<script src="{{ asset('js/mmenu-light.js') }}"></script>	
+	<script src="{{ asset('js/mmenu.js') }}"></script>
 
     <script src="{{ asset('js/nprogress.js') }}"></script>
 
@@ -30,14 +32,18 @@
     <link href="{{ asset('css/fontawesome-all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/ui.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/nprogress.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/nprogress.css') }}" rel="stylesheet">    
+	<link href="{{ asset('css/mmenu-light.css') }}" rel="stylesheet">    
+	<link href="{{ asset('css/mmenu.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/bootstrap-treeview.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 
 
 </head>
     <body>
         @yield('content')
         <script src="{{ asset('js/select2.js') }}"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     </body>
 </html>
