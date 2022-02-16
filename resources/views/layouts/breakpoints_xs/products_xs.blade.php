@@ -1,9 +1,9 @@
-<textarea id="filter_json" hidden>
+{{-- <textarea id="filter_json" hidden>
     {{$all_products}}
 </textarea>
 <textarea id="filtered_products_json" hidden>
     {{$filtered_products}}
-</textarea>
+</textarea> --}}
 @foreach ($products as $item)
 <article class="card card-product-list">
 	<div class="row no-gutters">
